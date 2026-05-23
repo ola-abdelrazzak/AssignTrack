@@ -9,6 +9,7 @@ import {
   Chip,
   Stack
 } from '@mui/material';
+import { ASSIGNMENT_STATUSES } from '../constants/assignmentStatuses';
 
 const TaskList = ({ tasks, setTasks, setEditingTask }) => {
   const { user } = useAuth();
@@ -33,11 +34,11 @@ const TaskList = ({ tasks, setTasks, setEditingTask }) => {
 
   const getStatusColor = (status) => {
     switch (status) {
-      case 'Completed':
+      case ASSIGNMENT_STATUSES.COMPLETED:
         return 'success';
-      case 'In Progress':
+      case ASSIGNMENT_STATUSES.IN_PROGRESS:
         return 'primary';
-      case 'Overdue':
+      case ASSIGNMENT_STATUSES.OVERDUE:
         return 'error';
       default:
         return 'default';

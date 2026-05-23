@@ -4,6 +4,7 @@ import TaskForm from '../components/TaskForm';
 import TaskList from '../components/TaskList';
 import { useAuth } from '../context/AuthContext';
 import { ASSIGNMENT_STATUSES } from '../constants/assignmentStatuses';
+import AssignmentStats from '../components/AssignmentStats';
 
 import {
   TextField,
@@ -71,6 +72,8 @@ const Tasks = () => {
 
   return (
     <div className="container mx-auto p-6">
+      <AssignmentStats tasks={tasks} />
+
       <TaskForm
         tasks={tasks}
         setTasks={setTasks}
