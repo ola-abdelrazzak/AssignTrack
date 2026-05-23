@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import axiosInstance from '../axiosConfig';
 import { useAuth } from '../context/AuthContext';
+import SubjectForm from '../components/SubjectForm';
+import SubjectList from '../components/SubjectList';
+
 
 import {
   TextField,
@@ -119,106 +122,21 @@ const Subjects = () => {
         return (
             <div className="container mx-auto p-6">
             <h1>Subject Management</h1>
-            <Card sx={{ mb: 3 }}>
-            <CardContent>
-                <Typography variant="h6" sx={{ mb: 2 }}>
-                Create Subject
-                </Typography>
-
-                <form onSubmit={handleCreateSubject}>
-                <TextField
-                    label="Subject Name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    fullWidth
-                    required
-                    margin="normal"
-                />
-
-                <TextField
-                    label="Description"
-                    value={formData.description}
-                    onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                    fullWidth
-                    margin="normal"
-                />
-
-                <Button
-                    type="submit"
-                    variant="contained"
-                    sx={{ mt: 2 }}
-                >
-                    Create Subject
-                </Button>
-                </form>
-            </CardContent>
-            </Card>
-
-            {subjects.map((subject) => (
-            <Card key={subject._id} sx={{ mb: 2 }}>
-                <CardContent>
-
-                <Typography variant="h6">
-                    {subject.name}
-                </Typography>
-
-                {editingSubject?._id === subject._id ? (
-                    <>
-                    <TextField
-                        label="Description"
-                        value={editDescription}
-                        onChange={(e) => setEditDescription(e.target.value)}
-                        fullWidth
-                        margin="normal"
-                    />
-
-                    <Stack direction="row" spacing={1} sx={{ mt: 2 }}>
-                        <Button
-                        variant="contained"
-                        onClick={() => handleUpdateSubject(subject._id)}
-                        >
-                        Save
-                        </Button>
-
-                        <Button
-                        variant="outlined"
-                        onClick={() => {
-                            setEditingSubject(null);
-                            setEditDescription('');
-                        }}
-                        >
-                        Cancel
-                        </Button>
-                    </Stack>
-                    </>
-                ) : (
-                    <>
-                    <Typography variant="body1">
-                        {subject.description || 'No description'}
-                    </Typography>
-
-                    <Stack direction="row" spacing={1} sx={{ mt: 2 }}>
-                        <Button
-                        variant="outlined"
-                        onClick={() => startEditingSubject(subject)}
-                        >
-                        Edit
-                        </Button>
-
-                        <Button
-                        variant="outlined"
-                        color="error"
-                        onClick={() => handleDeleteSubject(subject._id)}
-                        >
-                        Delete
-                        </Button>
-                    </Stack>
-                    </>
-                )}
-
-                </CardContent>
-            </Card>
-            ))}
+            <SubjectForm
+                formData={formData}
+                setFormData={setFormData}
+                handleCreateSubject={handleCreateSubject}
+            />
+            <SubjectList
+            subjects={subjects}
+            editingSubject={editingSubject}
+            editDescription={editDescription}
+            setEditDescription={setEditDescription}
+            startEditingSubject={startEditingSubject}
+            handleUpdateSubject={handleUpdateSubject}
+            handleDeleteSubject={handleDeleteSubject}
+            setEditingSubject={setEditingSubject}
+            />
             
             </div>
         );
