@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.5fdb5a77.css",
-    "main.js": "/static/js/main.07b9b292.js",
+    "main.css": "/static/css/main.d9106441.css",
+    "main.js": "/static/js/main.5c074f7e.js",
+    "static/media/AssignTrackLogo.png": "/static/media/AssignTrackLogo.5e743da575cfd945f371.png",
     "index.html": "/index.html",
-    "main.5fdb5a77.css.map": "/static/css/main.5fdb5a77.css.map",
-    "main.07b9b292.js.map": "/static/js/main.07b9b292.js.map"
+    "main.d9106441.css.map": "/static/css/main.d9106441.css.map",
+    "main.5c074f7e.js.map": "/static/js/main.5c074f7e.js.map"
   },
   "entrypoints": [
-    "static/css/main.5fdb5a77.css",
-    "static/js/main.07b9b292.js"
+    "static/css/main.d9106441.css",
+    "static/js/main.5c074f7e.js"
   ]
 }

@@ -40,7 +40,7 @@ const AssignmentStats = ({ tasks}) => {
       <Card key={status}  sx={{ flex: 1 }}>
         <CardContent>
           <Stack direction="row" spacing={1} alignItems="center">
-          <Chip sx={{ flex: 0.2 }}
+          <Chip 
             color={getStatusColor(status)}
             size="small"
             sx={{ mt: 1 }}
