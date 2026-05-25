@@ -23,7 +23,7 @@ const Tasks = () => {
     if (!user?.token) return;
     const fetchTasks = async () => {
       try {
-        const response = await axiosInstance.get('/api/tasks', {
+        const response = await axiosInstance.get('/tasks', {
           headers: { Authorization: `Bearer ${user.token}` },
         });
         setTasks(response.data);
@@ -34,7 +34,7 @@ const Tasks = () => {
 
     const fetchSubjects = async () => {
       try {
-        const response = await axiosInstance.get('/api/subjects', {
+        const response = await axiosInstance.get('/subjects', {
           headers: { Authorization: `Bearer ${user.token}` },
         });
         setSubjects(response.data);

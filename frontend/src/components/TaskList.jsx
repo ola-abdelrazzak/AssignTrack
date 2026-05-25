@@ -24,12 +24,12 @@ const TaskList = ({ tasks, setTasks, setEditingTask, openTaskForm  }) => {
     }
 
     try {
-      await axiosInstance.delete(`/api/tasks/${taskId}`, {
+      await axiosInstance.delete(`/tasks/${taskId}`, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
       setTasks(tasks.filter((task) => task._id !== taskId));
     } catch (error) {
-      alert('Failed to delete task.');
+      alert('Failed to delete assignment.');
     }
   };
 

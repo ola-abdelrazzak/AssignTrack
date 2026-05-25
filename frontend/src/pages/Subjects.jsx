@@ -23,7 +23,7 @@ const Subjects = () => {
                 return;}
             const fetchSubjects = async () => {
                 try {
-                    const response = await axiosInstance.get('/api/subjects',{
+                    const response = await axiosInstance.get('/subjects',{
                         headers: { Authorization: `Bearer ${user.token}` },
                     });
                     console.log('Subjects response:', response.data);
@@ -46,7 +46,7 @@ const Subjects = () => {
             }
 
             try {
-                const response = await axiosInstance.post('/api/subjects', formData, {
+                const response = await axiosInstance.post('/subjects', formData, {
                 headers: { Authorization: `Bearer ${user.token}` },
                 });
 
@@ -65,7 +65,7 @@ const Subjects = () => {
         const handleUpdateSubject = async (subjectId) => {
         try {
             const response = await axiosInstance.put(
-            `/api/subjects/${subjectId}`,
+            `/subjects/${subjectId}`,
             { description: editDescription },
             {
                 headers: { Authorization: `Bearer ${user.token}` },
