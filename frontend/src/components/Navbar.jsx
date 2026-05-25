@@ -19,7 +19,7 @@ const Navbar = () => {
     // px-6 py-2
     <nav className="bg-white shadow-sm px-6 py-2 flex justify-between items-center">
         <div className="flex items-center gap-10">
-  <Link to="/tasks" className="flex items-center">
+  <Link to={user ? "/tasks" : "/login"} className="flex items-center">
     <img
       src={logo}
       alt="AssignTrack"
@@ -30,8 +30,10 @@ const Navbar = () => {
     />
   </Link>
 
-  {user && (
-    <div className="flex items-center gap-6">
+  {user &&  
+    location.pathname !== '/login' &&
+    location.pathname !== '/register' &&
+    (<div className="flex items-center gap-6">
       <Link
         to="/tasks"
         style={{
@@ -97,15 +99,22 @@ const Navbar = () => {
 </div>
 </>
         ) : (
-          <>
-            <Link to="/login" className="mr-4">Login</Link>
-            <Link
-              to="/register"
-              className="bg-green-500 px-4 py-2 rounded hover:bg-green-700"
-            >
-              Register
-            </Link>
-          </>
+<>
+  {location.pathname !== '/login' && (
+    <Link to="/login" className="mr-4">
+      Login
+    </Link>
+  )}
+
+  {location.pathname !== '/register' && (
+    <Link
+      to="/register"
+      className="bg-green-500 px-4 py-2 rounded hover:bg-green-700"
+    >
+      Register
+    </Link>
+  )}
+</>
         )}
       </div>
     </nav>
